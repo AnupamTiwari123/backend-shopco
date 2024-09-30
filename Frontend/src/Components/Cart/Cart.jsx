@@ -16,7 +16,7 @@ const Cart = ({ user }) => {
 
             try {
                 // eslint-disable-next-line react/prop-types
-                const response = await axios.get(`http://localhost:3000/api/cart/get/${user._id}`, {
+                const response = await axios.get(`${window.location.origin}/api/cart/get/${user._id}`, {
                     withCredentials: true,
                 });
                 setData(response.data);
@@ -34,7 +34,7 @@ const Cart = ({ user }) => {
         try {
             const response = await axios.put(
                 // eslint-disable-next-line react/prop-types
-                `http://localhost:3000/api/cart/increase/${user._id}`,
+                `${window.location.origin}/api/cart/increase/${user._id}`,
                 { itemId },
                 { withCredentials: true }
             );
@@ -49,7 +49,7 @@ const Cart = ({ user }) => {
         try {
             const response = await axios.put(
                 // eslint-disable-next-line react/prop-types
-                `http://localhost:3000/api/cart/decrease/${user._id}`,
+                `${window.location.origin}/api/cart/decrease/${user._id}`,
                 { itemId },
                 { withCredentials: true }
             );
@@ -64,7 +64,7 @@ const Cart = ({ user }) => {
         try {
             const response = await axios.delete(
                 // eslint-disable-next-line react/prop-types
-                `http://localhost:3000/api/cart/remove/${user._id}/${itemId}`,
+                `${window.location.origin}/api/cart/remove/${user._id}/${itemId}`,
                 { withCredentials: true }
             );
             setData(response.data);
