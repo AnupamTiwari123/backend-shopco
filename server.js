@@ -20,11 +20,6 @@ const newArrivals = require('./routes/newArrivals.routes');
 const paymentRoutes = require('./routes/paymentRoutes.routes');
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'client/build')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
-
 app.use(cors({
     origin: 'http://localhost:5173',
     credentials: true
@@ -53,8 +48,10 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/newarrivals', newArrivals);
 app.use('/api/payment', paymentRoutes);
-
-    
+app.get("/", (req, res) => {
+    app.use(express.static(path.resolve(__dirname, "frontend", "dist")));
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+    });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
