@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+#new-arrival-section {
+  padding: 40px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.new-head h1 {
+  font-size: 32px;
+  color: #333;
+}
+
+.new-head hr {
+  width: 80px;
+  height: 3px;
+  background-color: #ff6f61;
+  margin: 20px auto;
+  border: none;
+  border-radius: 3px;
+}
+
+.newitems-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.item-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 250px;
+  text-align: center;
+  overflow: hidden;
+}
+.item-card a {
+color: black;
+text-decoration: none;
+}
+
+.item-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.item-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-details {
+  padding: 15px;
+}
+
+.item-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 10px 0;
+}
+
+.item-description {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+
+.item-prices {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.item-price-new {
+  color: #ff6f61;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.item-price-old {
+  color: #bbb;
+  font-size: 16px;
+  text-decoration: line-through;
+}
+
+.view-all-container {
+  margin-top: 30px;
+}
+
+.view-all-button {
+  padding: 10px 20px;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-all-button:hover {
+  background-color: #e55a50;
+}
+
+@media screen and (max-width: 800px) {
+  .new-head h1 {
+    font-size: 28px;
+  }
+  .item-card {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  
+  .new-head h1 {
+    font-size: 24px;
+  }
+  .item-image {
+    height: 430px;
+  }
+  .item-name {
+    font-size: 16px;
+  }
+  .item-price-new {
+    font-size: 16px;
+  }
+}

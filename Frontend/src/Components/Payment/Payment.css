@@ -1,0 +1,30 @@
+
+.payment {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.payment h2 {
+    margin-bottom: 15px;
+}
+
+.payment form {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.payment button:disabled {
+    background-color: #ccc;
+}

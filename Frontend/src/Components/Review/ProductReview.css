@@ -1,0 +1,12 @@
+.product-review {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+@media (max-width: 768px) {
+  .product-review {
+    gap: 20px;
+  }
+}
