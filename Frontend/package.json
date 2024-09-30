@@ -6,9 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
-    "vercel-build": "vite build" 
+    "vercel-build": "vite build"
   },
   "vercel": {
     "outputDirectory": "dist"
