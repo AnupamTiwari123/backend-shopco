@@ -41,3 +41,4 @@ yarn.lock
 # Other potentially sensitive files
 *.pem
 *.key
+.vercel
