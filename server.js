@@ -1,3 +1,4 @@
+
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -8,15 +9,15 @@ const cookieParser = require('cookie-parser');
 
 dotenv.config();
 
-const authRoutes = require('./routes/authRoutes.routes');
-const userRoutes = require('./routes/userRoutes.routes');
-const productRoutes = require('./routes/productRoutes.routes');
-const wishlistRoutes = require('./routes/wishListRoutes.routes');
-const cartRoutes = require('./routes/cartRoutes.routes');
-const orderRoutes = require('./routes/orderRoutes.routes');
-const reviewRoutes = require('./routes/reviewRoutes.routes');
-const newArrivals = require('./routes/newArrivals.routes');
-const paymentRoutes = require('./routes/paymentRoutes.routes');
+const authRoutes = require('../routes/authRoutes.routes');
+const userRoutes = require('../routes/userRoutes.routes');
+const productRoutes = require('../routes/productRoutes.routes');
+const wishlistRoutes = require('../routes/wishListRoutes.routes');
+const cartRoutes = require('../routes/cartRoutes.routes');
+const orderRoutes = require('../routes/orderRoutes.routes');
+const reviewRoutes = require('../routes/reviewRoutes.routes');
+const newArrivals = require('../routes/newArrivals.routes');
+const paymentRoutes = require('../routes/paymentRoutes.routes');
 
 const app = express();
 const allowedOrigins = process.env.NODE_ENV === 'production' 
@@ -52,5 +53,6 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/newarrivals', newArrivals);
 app.use('/api/payment', paymentRoutes);
+
 
 module.exports = app; 
