@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# Log files
+logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE/Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Yarn and npm locks
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Other potentially sensitive files
+*.pem
+*.key
