@@ -20,10 +20,15 @@ const newArrivals = require('./routes/newArrivals.routes');
 const paymentRoutes = require('./routes/paymentRoutes.routes');
 
 const app = express();
+const allowedOrigins = process.env.NODE_ENV === 'production' 
+    ? process.env.FRONTEND_URL 
+    : 'http://localhost:5173'; 
+
 app.use(cors({
-    origin: `${window.location.origin}`,
-    credentials: true
+    origin: allowedOrigins,
+    credentials: true,
 }));
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
