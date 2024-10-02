@@ -47,6 +47,7 @@ mongoose.connect(process.env.MONGO_URI, {})
 app.get("/",(req,res)=>{
     res.send("hello there")
 })
+
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
