@@ -1,4 +1,3 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -38,15 +37,16 @@ app.use(session({
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false }
+    cookie: { secure: process.env.NODE_ENV === 'production' }
 }));
 
 mongoose.connect(process.env.MONGO_URI, {})
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.error(err));
-app.get("/",(req,res)=>{
-    res.send("hello there")
-})
+
+app.get("/", (req, res) => {
+    res.send("hello there");
+});
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
@@ -58,4 +58,9 @@ app.use('/api/reviews', reviewRoutes);
 app.use('/api/newarrivals', newArrivals);
 app.use('/api/payment', paymentRoutes);
 
-module.exports = app; 
+
+app.use((req, res) => {
+    res.status(404).send('404: Not Found');
+});
+
+module.exports = app;
