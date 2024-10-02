@@ -21,7 +21,7 @@ const paymentRoutes = require('./routes/paymentRoutes.routes');
 
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: `${window.location.origin}`,
     credentials: true
 }));
 app.use(cookieParser());
