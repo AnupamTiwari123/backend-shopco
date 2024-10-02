@@ -44,7 +44,9 @@ app.use(session({
 mongoose.connect(process.env.MONGO_URI, {})
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.error(err));
-
+app.get("/",(req,res)=>{
+    res.send("hello there")
+})
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
