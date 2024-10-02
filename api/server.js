@@ -2,10 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require("path");
+
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-
 dotenv.config();
 
 const authRoutes = require('../routes/authRoutes.routes');
@@ -19,10 +20,9 @@ const newArrivals = require('../routes/newArrivals.routes');
 const paymentRoutes = require('../routes/paymentRoutes.routes');
 
 const app = express();
-
 const allowedOrigins = process.env.NODE_ENV === 'production' 
     ? process.env.FRONTEND_URL 
-    : 'http://localhost:5173';
+    : 'http://localhost:5173'; 
 
 app.use(cors({
     origin: allowedOrigins,
@@ -37,16 +37,12 @@ app.use(session({
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: process.env.NODE_ENV === 'production' }
+    cookie: { secure: false }
 }));
 
 mongoose.connect(process.env.MONGO_URI, {})
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.error(err));
-
-app.get("/", (req, res) => {
-    res.send("hello there");
-});
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
@@ -57,10 +53,10 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/newarrivals', newArrivals);
 app.use('/api/payment', paymentRoutes);
-
-
-app.use((req, res) => {
-    res.status(404).send('404: Not Found');
+app.get("/", (req, res) => {
+res.send("hello there")
+    });
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });
-
-module.exports = app;
