@@ -1,28 +1,28 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require("path");
+
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-
 dotenv.config();
 
-const authRoutes = require('../routes/authRoutes.routes');
-const userRoutes = require('../routes/userRoutes.routes');
-const productRoutes = require('../routes/productRoutes.routes');
-const wishlistRoutes = require('../routes/wishListRoutes.routes');
-const cartRoutes = require('../routes/cartRoutes.routes');
-const orderRoutes = require('../routes/orderRoutes.routes');
-const reviewRoutes = require('../routes/reviewRoutes.routes');
-const newArrivals = require('../routes/newArrivals.routes');
-const paymentRoutes = require('../routes/paymentRoutes.routes');
+const authRoutes = require('./routes/authRoutes.routes');
+const userRoutes = require('./routes/userRoutes.routes');
+const productRoutes = require('./routes/productRoutes.routes');
+const wishlistRoutes = require('./routes/wishListRoutes.routes');
+const cartRoutes = require('./routes/cartRoutes.routes');
+const orderRoutes = require('./routes/orderRoutes.routes');
+const reviewRoutes = require('./routes/reviewRoutes.routes');
+const newArrivals = require('./routes/newArrivals.routes');
+const paymentRoutes = require('./routes/paymentRoutes.routes');
 
 const app = express();
 const allowedOrigins = process.env.NODE_ENV === 'production' 
     ? process.env.FRONTEND_URL 
-    : 'http://localhost:5173';
+    : 'http://localhost:5173'; 
 
 app.use(cors({
     origin: allowedOrigins,
@@ -53,6 +53,11 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/newarrivals', newArrivals);
 app.use('/api/payment', paymentRoutes);
-
-
-module.exports = app; 
+app.get("/", (req, res) => {
+    app.use(express.static(path.resolve(__dirname, "frontend", "dist")));
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+    });
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
