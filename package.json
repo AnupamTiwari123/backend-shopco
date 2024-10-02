@@ -1,20 +1,30 @@
 {
-  "name": "ecommerce-backend",
+  "name": "ecommerce-capstone-project",
   "version": "1.0.0",
+  "description": "backend for my capstone project",
   "main": "api/server.js",
   "scripts": {
     "start": "node api/server.js",
-    "dev": "nodemon api/server.js"
+    "dev": "nodemon api/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2",
-    "mongoose": "^8.6.1",
-    "dotenv": "^16.4.5",
-    "cors": "^2.8.5",
-    "cookie-parser": "^1.4.6",
+    "@stripe/react-stripe-js": "^2.8.0",
+    "@stripe/stripe-js": "^4.5.0",
+    "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "express-session": "^1.18.0",
     "jsonwebtoken": "^9.0.2",
-    "bcryptjs": "^2.4.3"
+    "mongoose": "^8.6.1",
+    "nodemon": "^3.1.4",
+    "stripe": "^16.12.0"
   }
 }
