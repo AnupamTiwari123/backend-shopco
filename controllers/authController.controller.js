@@ -15,14 +15,15 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
     const { email, password } = req.body;
-    // console.log(email,password)
+    console.log(email,password)
     try {
         const user = await User.findOne({ email });
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
-
+console.log(user)
         const isMatch = await bcrypt.compare(password, user.password);
+        console.log(isMatch)
         if (!isMatch) {
             return res.status(400).json({ error: 'Invalid credentials' });
         }
@@ -36,6 +37,7 @@ exports.login = async (req, res) => {
         });
 
         res.json({ user });
+        console.log(user)
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

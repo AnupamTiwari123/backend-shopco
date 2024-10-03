@@ -41,7 +41,6 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Session settings
 app.use(session({
     secret: process.env.JWT_SECRET,
     resave: false,
