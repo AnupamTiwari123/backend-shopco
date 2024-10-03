@@ -29,12 +29,12 @@ console.log(user)
         }
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
-        
-        res.cookie('authToken', token, { 
-            httpOnly: true, 
-            secure: process.env.NODE_ENV === 'production', 
-            sameSite: 'Strict' 
-        });
+        console.log(token)
+   res.cookie('authToken', token, { 
+    httpOnly: true, 
+    secure: process.env.NODE_ENV === 'production', 
+    sameSite: 'Strict' 
+});
 
         res.json({ user });
         console.log(user)
