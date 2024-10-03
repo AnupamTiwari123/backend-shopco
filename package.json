@@ -1,15 +1,14 @@
 {
   "name": "ecommerce-capstone-project",
   "version": "1.0.0",
-  "description": "backend for my capstone project",
+  "description": "Backend for my capstone project",
   "main": "api/server.js",
   "scripts": {
     "start": "node api/server.js",
     "dev": "nodemon api/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
-  "author": "",
+  "author": "Your Name",
   "license": "ISC",
   "dependencies": {
     "@stripe/react-stripe-js": "^2.8.0",
