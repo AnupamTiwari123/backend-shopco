@@ -33,7 +33,7 @@ console.log(user)
    res.cookie('authToken', token, { 
     httpOnly: true, 
     secure: process.env.NODE_ENV === 'production', 
-    sameSite: 'Strict' 
+    sameSite: 'none' 
 });
 
         res.json({ user });
