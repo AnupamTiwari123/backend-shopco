@@ -1,6 +1,7 @@
 
 const Review = require('../models/review.model');
 const Product = require('../models/products.model');
+const NewArrival = require('../models/newArrivals.model');
 
 
 
@@ -18,7 +19,12 @@ exports.addReview= async (req, res) => {
     const { rating, comment } = req.body;
     console.log(rating,comment)
     try {
-        const product = await Product.findById(req.params.productId);
+        let product = await Product.findById(req.params.productId);
+        if(!product)
+        {
+
+            product = await NewArrival.findById(req.params.productId);
+        }
         if (!product) return res.status(404).json({ message: 'Product not found' });
 
         const review = new Review({
